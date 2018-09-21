@@ -3,7 +3,7 @@
 
 ## Using the Uber approach 
 
-> NOTE: This pom is prepare to build a Uber Jar (Fat jar). Unfortunately it does not run under windows.
+> NOTE: This pom is prepared to build a Uber Jar (Fat jar). Unfortunately it does not run under windows.
 Run this example under a Unix operation system
 
 **Build:**
@@ -16,7 +16,7 @@ java -jar executable/target/payara-hello-world-microbundle.jar
 ```
 
 ## Building a Uber Jar manually 
-> runs under MS Windows
+> It runs under MS Windows
 
 **Build:**
 ```
@@ -68,7 +68,7 @@ https://microprofile.io/project/eclipse/microprofile-health
 > /health
 
 
-Can be tailored to add additional health endpoints:
+Can be tailored to add additional health "checkpoints":
 
 - CheckForFood
 - DownCheckCoffeeAvailable
