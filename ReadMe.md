@@ -64,7 +64,7 @@ https://docs.payara.fish/documentation/microprofile/
 https://docs.payara.fish/documentation/microprofile/healthcheck.html
 https://microprofile.io/project/eclipse/microprofile-health
 
-###REST endpoint
+### REST endpoint
 > /health
 
 
