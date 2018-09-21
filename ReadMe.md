@@ -1,4 +1,4 @@
-#Building and running this project
+# Building and running this project
 
 
 ## Using the Uber approach 
@@ -49,18 +49,18 @@ mvn clean install
 java -jar PATH_TO_PAYARA_MICRO --deploy executable\target\payara-hello-world.war
 ```
 
-##Building and using a docker image
+## Building and using a docker image
 
 **TBC**
 
 
 
 
-#MicroProfile
+# MicroProfile
 https://microprofile.io/
 https://docs.payara.fish/documentation/microprofile/
 
-##Health Check
+## Health Check
 https://docs.payara.fish/documentation/microprofile/healthcheck.html
 https://microprofile.io/project/eclipse/microprofile-health
 
@@ -110,5 +110,5 @@ curl http://10.0.75.1:8080/health
 }
 ```
 
-#Notes
+# Notes
 MD guidelines by git: https://help.github.com/articles/basic-writing-and-formatting-syntax/
