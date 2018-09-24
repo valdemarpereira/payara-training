@@ -1,8 +1,8 @@
 package com.bmw.hdmapupdate.helloworldservice;
 
-import javax.enterprise.inject.Model;
+import javax.faces.bean.ApplicationScoped;
 
-@Model
+@ApplicationScoped
 public class ClockService {
 
     public String ubberUsefulClockService(){
