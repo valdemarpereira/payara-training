@@ -334,7 +334,7 @@ failures in distributed systems.
 https://is.muni.cz/th/ubkja/masters-thesis.pdf
 https://microprofile.io/project/eclipse/microprofile-fault-tolerance
 https://microprofile.io/project/eclipse/microprofile-fault-tolerance/spec/src/main/asciidoc/fallback.asciidoc
-
+http://www.gokhan-gokalp.com/en/resiliency-patterns-in-microservice-architecture/
 
 ### Fallback
 Provide an alternative solution for a failed execution.
@@ -365,10 +365,9 @@ Isolate failures in part of the system while the rest part of the system can sti
 **TBC**
 
 ### TimeOut and RetryPolicy
-Defines TimeOut's and criterias when to retry
+Defines TimeOut's and criteria when to retry
  
 **TBC**
-
 
 
 # Notes
