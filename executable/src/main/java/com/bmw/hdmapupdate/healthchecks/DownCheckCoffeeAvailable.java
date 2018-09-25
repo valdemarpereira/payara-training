@@ -6,7 +6,6 @@ import org.eclipse.microprofile.health.HealthCheckResponse;
 
 import javax.faces.bean.ApplicationScoped;
 
-
 @Health
 @ApplicationScoped
 public class DownCheckCoffeeAvailable implements HealthCheck {

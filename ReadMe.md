@@ -324,6 +324,52 @@ curl http://localhost:8080/metrics/application/longRunningMethod
 }
 ```
 
+## Fault Tolerance
+
+Microservices are designed to run in a highly distributed environment. 
+These type of environments introduce new challenges and new architecture problems and several stability patterns have been created to minimize the impact of
+failures in distributed systems.
+
+
+https://is.muni.cz/th/ubkja/masters-thesis.pdf
+https://microprofile.io/project/eclipse/microprofile-fault-tolerance
+https://microprofile.io/project/eclipse/microprofile-fault-tolerance/spec/src/main/asciidoc/fallback.asciidoc
+
+
+### Fallback
+Provide an alternative solution for a failed execution.
+
+Check FaultyService and DataFallbackHandler for an example
+
+Simulating a service when things goes wrong:
+```
+curl http://localhost:8080/rest/faulttorelance/true
+```
+
+Simulating a service when things goes well:
+```
+curl http://localhost:8080/rest/faulttorelance/false  
+```
+
+### Circuit Breaker Pattern
+Gracefully degrade functionality when a method call fails. 
+Use of the Circuit Breaker pattern can allow a microservice to continue operating when a related service fails, 
+preventing the failure from cascading and giving the failing service time to recover.
+
+
+**TBC**
+
+### Bulkhead
+Isolate failures in part of the system while the rest part of the system can still function.
+ 
+**TBC**
+
+### TimeOut and RetryPolicy
+Defines TimeOut's and criterias when to retry
+ 
+**TBC**
+
+
 
 # Notes
 MD guidelines by git: https://help.github.com/articles/basic-writing-and-formatting-syntax/
