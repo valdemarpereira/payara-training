@@ -52,10 +52,79 @@ java -jar PATH_TO_PAYARA_MICRO --deploy executable\target\payara-hello-world.war
 ## Building and using a docker image
 
 A docker image will be automatically created when running the mvn package phase.
-This is achieved using the Docker Maven plugin from Spotify:
+This is achieved using the Docker Maven plugin from Spotify.  It actually supports only two operations: building a Docker image and pushing a Docker image to the Registry.
 
 https://github.com/spotify/dockerfile-maven 
 
+Using the plugin is straightforward. You include it in your pom.xml file in the build section as you would expect.
+
+```xml
+  <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${dockerfile-maven-version}</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <repository>valdemarp/payaratesting</repository>
+                    <tag>${project.version}</tag>
+                    <contextDirectory>${project.basedir}/</contextDirectory>
+                </configuration>
+            </plugin>
+```
+
+Now you can simply run “mvn package” and watch the Docker image get created.
+
+```
+[INFO] --- dockerfile-maven-plugin:1.4.4:build (default) @ executable ---
+[INFO] Building Docker context C:\devel\workspace\MicroPayaraProjectSkeleton\executable
+[INFO]
+[INFO] Image will be built as valdemarp/payaratesting:1.0-SNAPSHOT
+[INFO]
+[INFO] Step 1/2 : FROM payara/micro
+[INFO]
+[INFO] Pulling from payara/micro
+[INFO] Digest: sha256:d900fbacc5b5bc8d909a3e03ffc16d9c8222437298e1da607ecc8875ab25cf17
+[INFO] Status: Image is up to date for payara/micro:latest
+[INFO]  ---> 1c17511c5884
+[INFO] Step 2/2 : COPY target/payara-hello-world.war $DEPLOY_DIR/payara-hello-world.war
+[INFO]
+[INFO]  ---> 6ffcc3aad941
+[INFO] Successfully built 6ffcc3aad941
+[INFO] Successfully tagged valdemarp/payaratesting:1.0-SNAPSHOT
+[INFO]
+[INFO] Detected build of image with id 6ffcc3aad941
+[INFO] Building jar: C:\devel\workspace\MicroPayaraProjectSkeleton\executable\target\payara-hello-world-docker-info.jar
+[INFO] Successfully built valdemarp/payaratesting:1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] MicroPayaraProjectSkeleton 1.0-SNAPSHOT ............ SUCCESS [  1.191 s]
+[INFO] service ............................................ SUCCESS [  4.331 s]
+[INFO] rest ............................................... SUCCESS [  2.333 s]
+[INFO] executable 1.0-SNAPSHOT ............................ SUCCESS [ 12.382 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.475 s
+[INFO] Finished at: 2018-09-26T11:07:58+01:00
+[INFO] ------------------------------------------------------------------------
+```
+
+And we can easily verify the image was created:
+
+```
+C:\devel\workspace\MicroPayaraProjectSkeleton>docker images
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+valdemarp/payaratesting   1.0-SNAPSHOT        6ffcc3aad941        2 minutes ago      181MB
+```
 
 # A Multi-Module Maven Approach
 
