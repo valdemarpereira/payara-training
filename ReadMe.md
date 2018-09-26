@@ -51,8 +51,10 @@ java -jar PATH_TO_PAYARA_MICRO --deploy executable\target\payara-hello-world.war
 
 ## Building and using a docker image
 
-**TBC**
+A docker image will be automatically created when running the mvn package phase.
+This is achieved using the Docker Maven plugin from Spotify:
 
+https://github.com/spotify/dockerfile-maven 
 
 
 # A Multi-Module Maven Approach
